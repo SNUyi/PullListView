@@ -19,15 +19,6 @@
             android:textColor="#404040"
             android:textSize="16sp" />
 
-        <ImageView
-            android:id="@+id/iv_head_arrow"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="15dp"
-            android:layout_toLeftOf="@id/tv_head_title"
-            android:src="@drawable/pull_list_view_progressbar_bg" />
-
         <ProgressBar
             android:id="@+id/pb_head_refreshing"
             style="?android:attr/progressBarStyleSmall"
@@ -36,7 +27,6 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"
             android:layout_toLeftOf="@id/tv_head_title"
-            android:indeterminateDrawable="@drawable/pull_list_view_progressbar"
             android:indeterminateDuration="1000"
             android:visibility="gone" />
     </RelativeLayout>

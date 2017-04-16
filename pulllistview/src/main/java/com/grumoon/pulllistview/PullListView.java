@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.AbsListView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -72,7 +71,7 @@ public class PullListView extends ListView {
     private TextView tvHeadTitle;
 
     // 下拉刷新图标
-    private ImageView ivHeadArrow;
+//    private ImageView ivHeadArrow;
 
     // 刷新中忙碌框
     private ProgressBar pbHeadRefreshing;
@@ -183,7 +182,7 @@ public class PullListView extends ListView {
          * 头部
          */
         headView = (LinearLayout) inflater.inflate(R.layout.pull_list_view_head, null);
-        ivHeadArrow = (ImageView) headView.findViewById(R.id.iv_head_arrow);
+//        ivHeadArrow = (ImageView) headView.findViewById(R.id.iv_head_arrow);
         pbHeadRefreshing = (ProgressBar) headView.findViewById(R.id.pb_head_refreshing);
         tvHeadTitle = (TextView) headView.findViewById(R.id.tv_head_title);
         measureView(headView);
@@ -349,32 +348,32 @@ public class PullListView extends ListView {
             case NONE:
                 headView.setPadding(0, -1 * headViewHeight, 0, 0);
                 pbHeadRefreshing.setVisibility(View.GONE);
-                ivHeadArrow.clearAnimation();
-                ivHeadArrow.setImageResource(R.drawable.pull_list_view_progressbar_bg);
+//                ivHeadArrow.clearAnimation();
+//                ivHeadArrow.setImageResource(R.drawable.pull_list_view_progressbar_bg);
                 tvHeadTitle.setText("下拉刷新");
                 break;
 
             case PULL_TO_REFRESH:
                 pbHeadRefreshing.setVisibility(View.GONE);
                 tvHeadTitle.setVisibility(View.VISIBLE);
-                ivHeadArrow.clearAnimation();
-                ivHeadArrow.setVisibility(View.VISIBLE);
+//                ivHeadArrow.clearAnimation();
+//                ivHeadArrow.setVisibility(View.VISIBLE);
                 tvHeadTitle.setText("下拉刷新");
                 // 是由RELEASE_To_REFRESH状态转变来的
                 if (isFromReleaseToRefresh) {
                     isFromReleaseToRefresh = false;
-                    ivHeadArrow.clearAnimation();
-                    ivHeadArrow.startAnimation(reverseAnimation);
+//                    ivHeadArrow.clearAnimation();
+//                    ivHeadArrow.startAnimation(reverseAnimation);
                 }
                 break;
 
             case RELEASE_TO_REFRESH:
-                ivHeadArrow.setVisibility(View.VISIBLE);
+//                ivHeadArrow.setVisibility(View.VISIBLE);
                 pbHeadRefreshing.setVisibility(View.GONE);
                 tvHeadTitle.setVisibility(View.VISIBLE);
 
-                ivHeadArrow.clearAnimation();
-                ivHeadArrow.startAnimation(animation);
+//                ivHeadArrow.clearAnimation();
+//                ivHeadArrow.startAnimation(animation);
 
                 tvHeadTitle.setText("松开刷新");
 
@@ -385,8 +384,8 @@ public class PullListView extends ListView {
                 headView.setPadding(0, 0, 0, 0);
 
                 pbHeadRefreshing.setVisibility(View.VISIBLE);
-                ivHeadArrow.clearAnimation();
-                ivHeadArrow.setVisibility(View.GONE);
+//                ivHeadArrow.clearAnimation();
+//                ivHeadArrow.setVisibility(View.GONE);
                 tvHeadTitle.setText("正在刷新...");
 
                 break;
